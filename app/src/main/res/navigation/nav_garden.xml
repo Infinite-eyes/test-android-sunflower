@@ -20,11 +20,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@+id/garden_fragment">
 
-    <!--<fragment-->
-        <!--android:id="@+id/garden_fragment"-->
-        <!--android:name="com.google.samples.apps.sunflower.GardenFragment"-->
-        <!--android:label="@string/my_garden_title"-->
-        <!--tools:layout="@layout/fragment_garden" />-->
+    <fragment
+        android:id="@+id/garden_fragment"
+        android:name="com.google.samples.apps.sunflower.GardenFragment"
+        android:label="@string/my_garden_title"
+        tools:layout="@layout/fragment_garden" />
 
     <!--<fragment-->
         <!--android:id="@+id/plant_list_fragment"-->

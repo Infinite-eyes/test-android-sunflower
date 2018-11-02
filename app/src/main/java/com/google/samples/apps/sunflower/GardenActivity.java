@@ -1,7 +1,6 @@
 package com.google.samples.apps.sunflower;
 
 import android.os.Bundle;
-import android.view.Gravity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

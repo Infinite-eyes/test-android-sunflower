@@ -17,7 +17,7 @@
 <resources>
 
     <!-- Resources that do not require translation -->
-    <string name="app_name">Sunflower</string>
+    <string name="app_name" translatable="false">Sunflower</string>
     <string name="navigation_drawer_header_title" translatable="false">Sunflower</string>
 
     <!-- Translatable resources -->
