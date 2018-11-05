@@ -28,7 +28,7 @@ public class GardenPlantingAdapter extends ListAdapter<PlantAndGardenPlantings, 
     private final Context context;
 
 
-    protected GardenPlantingAdapter(@NotNull Context context) {
+    public GardenPlantingAdapter(@NotNull Context context) {
         super(new GardenPlantDiffCallback());
         this.context = context;
     }
@@ -60,8 +60,6 @@ public class GardenPlantingAdapter extends ListAdapter<PlantAndGardenPlantings, 
             super(binding.getRoot());
             this.binding = binding;
         }
-
-
     }
 
 

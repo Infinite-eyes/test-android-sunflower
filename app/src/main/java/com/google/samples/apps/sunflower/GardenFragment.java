@@ -1,10 +1,12 @@
 package com.google.samples.apps.sunflower;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.samples.apps.sunflower.adapters.GardenPlantingAdapter;
 import com.google.samples.apps.sunflower.databinding.FragmentGardenBinding;
 
 import androidx.annotation.NonNull;
@@ -24,10 +26,23 @@ public class GardenFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FragmentGardenBinding binding = FragmentGardenBinding.inflate(inflater, container,false);
+        GardenPlantingAdapter adapter = new GardenPlantingAdapter(binding.getRoot().getContext());
+        binding.gardenList.setAdapter(adapter);
+//        sub
 
 
-
-
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return binding.getRoot();
     }
+
+    private final void subscribeUi(final GardenPlantingAdapter adapter, final FragmentGardenBinding binding){
+
+//        Context context = this.requireContext();
+//        GardenPlantingListViewModelFactory
+
+
+
+    }
+
+
+
 }
