@@ -1,6 +1,5 @@
 package com.google.samples.apps.sunflower.data;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 
@@ -18,7 +17,8 @@ import static java.util.Calendar.DAY_OF_YEAR;
  **/
 @Entity(tableName = "plants")
 public class Plant {
-    @PrimaryKey @ColumnInfo(name = "id")
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     public final String plantId;
     public final String name;
     public final String description;
@@ -26,7 +26,7 @@ public class Plant {
     public final int wateringInterval;
     public final String imageUrl;
 
-    public Plant(@NotNull String plantId, @NotNull String name, @NotNull String description, int growZoneNumber, int wateringInterval, @NotNull String imageUrl) {
+    public Plant(String plantId, String name, String description, int growZoneNumber, int wateringInterval, String imageUrl) {
         super();
         this.plantId = plantId;
         this.name = name;
@@ -36,17 +36,15 @@ public class Plant {
         this.imageUrl = imageUrl;
     }
 
-    public final boolean shouldBeWatered(@NotNull Calendar since, @NotNull Calendar lastWateringDate) {
+    public final boolean shouldBeWatered(Calendar since, Calendar lastWateringDate) {
         lastWateringDate.add(DAY_OF_YEAR, this.wateringInterval);
         return since.compareTo(lastWateringDate) > 0;
     }
 
 
-    @NotNull
     public String toString() {
         return this.name;
     }
-
 
 
 }

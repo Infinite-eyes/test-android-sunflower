@@ -31,17 +31,14 @@ public final class GardenPlanting {
     @ColumnInfo(name = "id")
     public long gardenPlantingId;
     @ColumnInfo(name = "plant_id")
-    @NotNull
     public final String plantId;
     @ColumnInfo(name = "plant_date")
-    @NotNull
     public final Calendar plantDate;
 
     @ColumnInfo(name = "last_watering_date")
-    @NotNull
     public final Calendar lastWateringDate;
 
-    public GardenPlanting(@NotNull String plantId, @NotNull Calendar plantDate, @NotNull Calendar lastWateringDate) {
+    public GardenPlanting( String plantId,  Calendar plantDate,  Calendar lastWateringDate) {
         this.plantId = plantId;
         this.plantDate = plantDate;
         this.lastWateringDate = lastWateringDate;

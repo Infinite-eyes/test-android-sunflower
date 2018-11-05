@@ -17,11 +17,11 @@ public class GardenPlantingListViewModelFactory extends ViewModelProvider.NewIns
 
     private final GardenPlantingRepository repository;
 
-    public ViewModel create(@NotNull Class modelClass) {
+    public ViewModel create( Class modelClass) {
         return (ViewModel)(new GardenPlantingListViewModel(this.repository));
     }
 
-    public GardenPlantingListViewModelFactory(@NotNull GardenPlantingRepository repository) {
+    public GardenPlantingListViewModelFactory( GardenPlantingRepository repository) {
         this.repository = repository;
     }
 

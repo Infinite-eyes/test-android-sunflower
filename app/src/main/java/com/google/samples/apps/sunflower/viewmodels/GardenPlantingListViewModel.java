@@ -21,7 +21,7 @@ public class GardenPlantingListViewModel extends ViewModel {
 
     private final LiveData plantAndGardenPlantings;
 
-    public GardenPlantingListViewModel(@NotNull GardenPlantingRepository gardenPlantingRepository) {
+    public GardenPlantingListViewModel( GardenPlantingRepository gardenPlantingRepository) {
         this.gardenPlantings = gardenPlantingRepository.getGardenPlantings();
 //        LiveData liveData = Transformations.map(gardenPlantingRepository.getPlantAndGardenPlantings(), { plantings ->{
 //
@@ -34,7 +34,11 @@ public class GardenPlantingListViewModel extends ViewModel {
         this.plantAndGardenPlantings = liveData;
     }
 
+    public LiveData getGardenPlantings() {
+        return gardenPlantings;
+    }
 
-
-
+    public LiveData getPlantAndGardenPlantings() {
+        return plantAndGardenPlantings;
+    }
 }

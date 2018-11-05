@@ -1,12 +1,9 @@
 package com.google.samples.apps.sunflower.adapters;
 
-
-import com.google.samples.apps.sunflower.data.Plant;
 import com.google.samples.apps.sunflower.data.PlantAndGardenPlantings;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
-import kotlin.jvm.internal.Intrinsics;
 
 /**
  * @author chenweiming

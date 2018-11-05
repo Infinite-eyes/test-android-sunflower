@@ -1,8 +1,5 @@
 package com.google.samples.apps.sunflower.data;
 
-import org.jetbrains.annotations.NotNull;
-
-
 import androidx.lifecycle.LiveData;
 
 
@@ -19,7 +16,7 @@ public final class GardenPlantingRepository {
     public static final GardenPlantingRepository.Companion Companion = new GardenPlantingRepository.Companion();
 
 
-    public final GardenPlantingRepository getInstance(@NotNull GardenPlantingDao gardenPlantingDao) {
+    public final GardenPlantingRepository getInstance( GardenPlantingDao gardenPlantingDao) {
 //        GardenPlantingRepository var10000 = GardenPlantingRepository.instance;
 //        if (var10000 == null) {
 //            synchronized (this) {
@@ -45,7 +42,7 @@ public final class GardenPlantingRepository {
         return null;
     }
 
-    public final void createGardenPlanting(@NotNull final String plantId) {
+    public final void createGardenPlanting( final String plantId) {
 
 //        AppExecutorsKt.runOnIoThread((Function0)(new Function0() {
 //            // $FF: synthetic method
@@ -63,7 +60,7 @@ public final class GardenPlantingRepository {
     }
 
 
-    public final LiveData getGardenPlantingForPlant(@NotNull String plantId) {
+    public final LiveData getGardenPlantingForPlant( String plantId) {
         return this.gardenPlantingDao.getGardenPlantingForPlant(plantId);
     }
 
@@ -80,8 +77,8 @@ public final class GardenPlantingRepository {
     }
 
     public static final class Companion {
-        @NotNull
-        public final GardenPlantingRepository getInstance(@NotNull GardenPlantingDao gardenPlantingDao) {
+        
+        public final GardenPlantingRepository getInstance( GardenPlantingDao gardenPlantingDao) {
             GardenPlantingRepository gardenPlantingRepository = GardenPlantingRepository.instance;
             if (gardenPlantingRepository == null) {
                 gardenPlantingRepository = GardenPlantingRepository.instance;

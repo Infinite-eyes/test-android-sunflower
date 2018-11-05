@@ -24,24 +24,21 @@ public class PlantAndGardenPlantings {
 
 
     @Relation(parentColumn = "id", entityColumn = "plant_id")
-    @NotNull
     private List gardenPlantings;
 
-    @Nullable
     public final Plant getPlant() {
         return this.plant;
     }
 
-    public final void setPlant(@Nullable Plant var1) {
+    public final void setPlant(Plant var1) {
         this.plant = var1;
     }
 
-    @NotNull
     public final List getGardenPlantings() {
         return this.gardenPlantings;
     }
 
-    public final void setGardenPlantings(@NotNull List gardenPlantings) {
+    public final void setGardenPlantings(List gardenPlantings) {
         this.gardenPlantings = gardenPlantings;
     }
 

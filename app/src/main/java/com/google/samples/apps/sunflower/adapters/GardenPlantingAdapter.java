@@ -9,7 +9,6 @@ import com.google.samples.apps.sunflower.data.PlantAndGardenPlantings;
 import com.google.samples.apps.sunflower.databinding.ListItemGardenPlantingBinding;
 import com.google.samples.apps.sunflower.viewmodels.PlantAndGardenPlantingsViewModel;
 
-import org.jetbrains.annotations.NotNull;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -27,7 +26,7 @@ public class GardenPlantingAdapter extends ListAdapter<PlantAndGardenPlantings, 
     private final Context context;
 
 
-    public GardenPlantingAdapter(@NotNull Context context) {
+    public GardenPlantingAdapter( Context context) {
         super(new GardenPlantDiffCallback());
         this.context = context;
     }
@@ -49,13 +48,13 @@ public class GardenPlantingAdapter extends ListAdapter<PlantAndGardenPlantings, 
 
         private final ListItemGardenPlantingBinding binding;
 
-        private final void bind(@NotNull PlantAndGardenPlantings plantings) {
+        private final void bind( PlantAndGardenPlantings plantings) {
             this.binding.setViewModel(new PlantAndGardenPlantingsViewModel(this.itemView.getContext(), plantings));
             this.binding.executePendingBindings();
         }
 
 
-        public ViewHolder(@NotNull ListItemGardenPlantingBinding binding) {
+        public ViewHolder( ListItemGardenPlantingBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

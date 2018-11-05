@@ -34,7 +34,7 @@ public class PlantAndGardenPlantingsViewModel extends ViewModel {
     private ObservableField<String> plantDate;
     private ObservableField<String> waterDate;
 
-    public PlantAndGardenPlantingsViewModel(@NotNull final Context context, @NotNull PlantAndGardenPlantings plantings) {
+    public PlantAndGardenPlantingsViewModel( final Context context,  PlantAndGardenPlantings plantings) {
         this.plant = plantings.getPlant();
         this.gardenPlanting = (GardenPlanting) plantings.getGardenPlantings().get(0);
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.US);
