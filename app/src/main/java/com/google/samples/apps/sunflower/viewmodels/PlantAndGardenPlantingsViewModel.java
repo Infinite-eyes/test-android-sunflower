@@ -14,11 +14,6 @@ import java.util.Locale;
 
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
-import kotlin.Lazy;
-import kotlin.LazyKt;
-import kotlin.jvm.internal.PropertyReference1Impl;
-import kotlin.jvm.internal.Reflection;
-import kotlin.reflect.KProperty;
 
 /**
  * @author chenweiming

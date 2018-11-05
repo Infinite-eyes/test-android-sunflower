@@ -18,13 +18,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+    <!--<data>-->
 
-        <variable
-            name="hasPlantings"
-            type="Boolean" />
+    <!--<variable-->
+    <!--name="hasPlantings"-->
+    <!--type="Boolean" />-->
 
-    </data>
+    <!--</data>-->
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -37,19 +37,17 @@
             android:clipToPadding="false"
             android:paddingLeft="@dimen/margin_normal"
             android:paddingRight="@dimen/margin_normal"
-            app:isGone="@{!hasPlantings}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_item_garden_planting" />
-
+            tools:listitem="@layout/list_item_garden_planting"/>
+        <!--app:isGone="@{!hasPlantings}"-->
         <TextView
             android:id="@+id/empty_garden"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/garden_empty"
-            android:textSize="24sp"
-            app:isGone="@{hasPlantings}" />
-
+            android:textSize="24sp" />
+        <!--app:isGone="@{hasPlantings}"-->
     </FrameLayout>
 
 </layout>

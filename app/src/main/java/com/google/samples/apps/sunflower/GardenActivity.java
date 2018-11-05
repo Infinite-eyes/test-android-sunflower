@@ -23,7 +23,6 @@ public class GardenActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,10 @@
 package com.google.samples.apps.sunflower.viewmodels;
 
+import com.google.samples.apps.sunflower.data.GardenPlantingRepository;
+
+import org.jetbrains.annotations.NotNull;
+
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 /**
@@ -10,9 +15,14 @@ import androidx.lifecycle.ViewModelProvider;
  **/
 public class GardenPlantingListViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
-//    private final GardenPlan
+    private final GardenPlantingRepository repository;
 
+    public ViewModel create(@NotNull Class modelClass) {
+        return (ViewModel)(new GardenPlantingListViewModel(this.repository));
+    }
 
-
+    public GardenPlantingListViewModelFactory(@NotNull GardenPlantingRepository repository) {
+        this.repository = repository;
+    }
 
 }

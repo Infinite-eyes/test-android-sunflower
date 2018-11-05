@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.google.samples.apps.sunflower.adapters.GardenPlantingAdapter;
 import com.google.samples.apps.sunflower.databinding.FragmentGardenBinding;
+import com.google.samples.apps.sunflower.viewmodels.GardenPlantingListViewModelFactory;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,24 +26,22 @@ public class GardenFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FragmentGardenBinding binding = FragmentGardenBinding.inflate(inflater, container,false);
+        FragmentGardenBinding binding = FragmentGardenBinding.inflate(inflater, container, false);
         GardenPlantingAdapter adapter = new GardenPlantingAdapter(binding.getRoot().getContext());
         binding.gardenList.setAdapter(adapter);
-//        sub
+        subscribeUi(adapter, binding);
 
 
         return binding.getRoot();
     }
 
-    private final void subscribeUi(final GardenPlantingAdapter adapter, final FragmentGardenBinding binding){
-
+    private final void subscribeUi(final GardenPlantingAdapter adapter, final FragmentGardenBinding binding) {
+//        GardenPlantingListViewModelFactory
 //        Context context = this.requireContext();
 //        GardenPlantingListViewModelFactory
 
 
-
     }
-
 
 
 }
