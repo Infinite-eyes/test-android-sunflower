@@ -1,9 +1,11 @@
 package com.google.samples.apps.sunflower.data;
 
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -29,20 +31,49 @@ public final class GardenPlanting {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    public long gardenPlantingId;
+    @NonNull
+    private long gardenPlantingId;
+
     @ColumnInfo(name = "plant_id")
-    public final String plantId;
+    @NotNull
+    private final String plantId;
     @ColumnInfo(name = "plant_date")
-    public final Calendar plantDate;
+    @NotNull
+    private final Calendar plantDate;
 
     @ColumnInfo(name = "last_watering_date")
-    public final Calendar lastWateringDate;
+    @NotNull
+    private final Calendar lastWateringDate;
 
-    public GardenPlanting( String plantId,  Calendar plantDate,  Calendar lastWateringDate) {
+    public GardenPlanting(@NotNull String plantId, @NotNull Calendar plantDate, @NotNull Calendar lastWateringDate) {
         this.plantId = plantId;
         this.plantDate = plantDate;
         this.lastWateringDate = lastWateringDate;
     }
+
+    public long getGardenPlantingId() {
+        return gardenPlantingId;
+    }
+
+    public void setGardenPlantingId(long gardenPlantingId) {
+        this.gardenPlantingId = gardenPlantingId;
+    }
+
+    @NotNull
+    public String getPlantId() {
+        return plantId;
+    }
+
+    @NotNull
+    public Calendar getPlantDate() {
+        return plantDate;
+    }
+
+    @NotNull
+    public Calendar getLastWateringDate() {
+        return lastWateringDate;
+    }
+
 
 
 

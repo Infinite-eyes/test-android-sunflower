@@ -22,22 +22,27 @@ public interface GardenPlantingDao {
 
 
     @Query("SELECT * FROM garden_plantings")
+    @NotNull
     LiveData getGardenPlantings();
 
     @Query("SELECT * FROM garden_plantings WHERE id = :gardenPlantingId")
+    @NotNull
     LiveData<GardenPlanting> getGardenPlanting(long gardenPlantingId);
 
     @Query("SELECT * FROM garden_plantings WHERE plant_id = :plantId")
-    LiveData<GardenPlanting> getGardenPlantingForPlant(String plantId);
+    @NotNull
+    LiveData<GardenPlanting> getGardenPlantingForPlant(@NotNull String plantId);
 
     @Transaction
     @Query("SELECT * FROM plants")
+    @NotNull
     LiveData<List<PlantAndGardenPlantings>> getPlantAndGardenPlantings();
 
     @Insert
-    Long insertGardenPlanting(GardenPlanting gardenPlanting);
+    Long insertGardenPlanting(@NotNull GardenPlanting gardenPlanting);
 
     @Delete
-    void deleteGardenPlanting(GardenPlanting gardenPlanting);
+    void deleteGardenPlanting(@NotNull GardenPlanting gardenPlanting);
+
 
 }

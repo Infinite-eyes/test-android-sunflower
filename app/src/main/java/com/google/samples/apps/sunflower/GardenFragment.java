@@ -27,13 +27,12 @@ import androidx.lifecycle.ViewModelProviders;
  **/
 public class GardenFragment extends Fragment {
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FragmentGardenBinding binding = FragmentGardenBinding.inflate(inflater, container, false);
-        GardenPlantingAdapter adapter = new GardenPlantingAdapter(binding.getRoot().getContext());
-        binding.gardenList.setAdapter(adapter);
+//        GardenPlantingAdapter adapter = new GardenPlantingAdapter(binding.getRoot().getContext());
+//        binding.gardenList.setAdapter(adapter);
 //        subscribeUi(adapter, binding);
 
 
@@ -41,24 +40,24 @@ public class GardenFragment extends Fragment {
     }
 
     private final void subscribeUi(final GardenPlantingAdapter adapter, final FragmentGardenBinding binding) {
-        GardenPlantingListViewModelFactory factory = InjectorUtils.INSTANCE.provideGardenPlantingListViewModelFactory(requireContext());
-        GardenPlantingListViewModel viewModel = ViewModelProviders.of(this, factory).get(GardenPlantingListViewModel.class);
-        viewModel.getGardenPlantings().observe(this, plantings -> {
-
-            boolean hasPlantings = false;
-            if (plantings != null) {
-                hasPlantings = !(((List) plantings).isEmpty());
-            }
-            binding.setHasPlantings(hasPlantings);
-        });
-
-        viewModel.getPlantAndGardenPlantings().observe(this, result -> {
-            if (result != null) {
-                if (!(((List) result).isEmpty())) {
-                    adapter.submitList(((List) result));
-                }
-            }
-        });
+//        GardenPlantingListViewModelFactory factory = InjectorUtils.INSTANCE.provideGardenPlantingListViewModelFactory(requireContext());
+//        GardenPlantingListViewModel viewModel = ViewModelProviders.of(this, factory).get(GardenPlantingListViewModel.class);
+//        viewModel.getGardenPlantings().observe(this, plantings -> {
+//
+//            boolean hasPlantings = false;
+//            if (plantings != null) {
+//                hasPlantings = !(((List) plantings).isEmpty());
+//            }
+//            binding.setHasPlantings(hasPlantings);
+//        });
+//
+//        viewModel.getPlantAndGardenPlantings().observe(this, result -> {
+//            if (result != null) {
+//                if (!(((List) result).isEmpty())) {
+//                    adapter.submitList(((List) result));
+//                }
+//            }
+//        });
 
     }
 

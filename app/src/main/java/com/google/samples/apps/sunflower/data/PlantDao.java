@@ -1,5 +1,7 @@
 package com.google.samples.apps.sunflower.data;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import androidx.lifecycle.LiveData;
@@ -18,15 +20,18 @@ import androidx.room.Query;
 public interface PlantDao {
 
     @Query("SELECT * FROM plants ORDER BY name")
+    @NotNull
     LiveData<List<Plant>> getPlants();
 
     @Query("SELECT * FROM plants WHERE growZoneNumber = :growZoneNumber ORDER BY name")
+    @NotNull
     LiveData getPlantsWithGrowZoneNumber(int growZoneNumber);
 
     @Query("SELECT * FROM plants WHERE id = :plantId")
-    LiveData getPlant(String plantId);
+    @NotNull
+    LiveData getPlant(@NotNull String plantId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertAll(List<Plant> plants);
+     void insertAll(@NotNull List<Plant> plants);
 
 }

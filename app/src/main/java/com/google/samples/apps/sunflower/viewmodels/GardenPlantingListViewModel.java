@@ -5,7 +5,6 @@ import com.google.samples.apps.sunflower.data.GardenPlantingRepository;
 import org.jetbrains.annotations.NotNull;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
 /**
@@ -16,17 +15,25 @@ import androidx.lifecycle.ViewModel;
  **/
 public class GardenPlantingListViewModel extends ViewModel {
 
-
+    @NotNull
     private final LiveData gardenPlantings;
-
+    @NotNull
     private final LiveData plantAndGardenPlantings;
 
-    public GardenPlantingListViewModel( GardenPlantingRepository gardenPlantingRepository) {
+    @NotNull
+    public final LiveData getGardenPlantings() {
+        return this.gardenPlantings;
+    }
+
+    @NotNull
+    public final LiveData getPlantAndGardenPlantings() {
+        return this.plantAndGardenPlantings;
+    }
+
+
+    public GardenPlantingListViewModel(@NotNull GardenPlantingRepository gardenPlantingRepository) {
         this.gardenPlantings = gardenPlantingRepository.getGardenPlantings();
 //        LiveData liveData = Transformations.map(gardenPlantingRepository.getPlantAndGardenPlantings(), { plantings ->{
-//
-//
-//
 //        }});
 
         LiveData liveData = gardenPlantingRepository.getPlantAndGardenPlantings();
@@ -34,11 +41,4 @@ public class GardenPlantingListViewModel extends ViewModel {
         this.plantAndGardenPlantings = liveData;
     }
 
-    public LiveData getGardenPlantings() {
-        return gardenPlantings;
-    }
-
-    public LiveData getPlantAndGardenPlantings() {
-        return plantAndGardenPlantings;
-    }
 }

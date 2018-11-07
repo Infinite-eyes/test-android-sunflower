@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.samples.apps.sunflower.workers.SeedDatabaseWorker;
 
+
 import org.jetbrains.annotations.NotNull;
 
 import androidx.databinding.adapters.Converters;
@@ -35,13 +36,16 @@ public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase instance;
     public static final AppDatabase.Companion Companion = new AppDatabase.Companion();
 
+    @NotNull
     public abstract GardenPlantingDao gardenPlantingDao();
 
+    @NotNull
     public abstract PlantDao plantDao();
 
     public static final class Companion {
 
-        public final AppDatabase getInstance(Context context) {
+        @NotNull
+        public final AppDatabase getInstance(@NotNull Context context) {
             if (AppDatabase.instance == null) {
                 AppDatabase.instance = AppDatabase.Companion.buildDatabase(context);
             }

@@ -7,8 +7,6 @@ import com.google.samples.apps.sunflower.data.GardenPlanting;
 import com.google.samples.apps.sunflower.data.Plant;
 import com.google.samples.apps.sunflower.data.PlantAndGardenPlantings;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
@@ -38,8 +36,8 @@ public class PlantAndGardenPlantingsViewModel extends ViewModel {
         this.plant = plantings.getPlant();
         this.gardenPlanting = (GardenPlanting) plantings.getGardenPlantings().get(0);
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.US);
-        plantDateString = dateFormat.format(gardenPlanting.plantDate.getTime());
-        waterDateString = dateFormat.format(gardenPlanting.lastWateringDate.getTime());
+        plantDateString = dateFormat.format(gardenPlanting.getPlantDate().getTime());
+        waterDateString = dateFormat.format(gardenPlanting.getLastWateringDate().getTime());
         wateringPrefix = context.getString(R.string.watering_next_prefix, waterDateString);
         wateringSuffix = context.getResources().getQuantityString(R.plurals.watering_next_suffix, plant.wateringInterval, plant.wateringInterval);
         imageUrl = new ObservableField<String>(plant.imageUrl);

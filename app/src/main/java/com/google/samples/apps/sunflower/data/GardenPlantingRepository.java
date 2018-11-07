@@ -1,5 +1,7 @@
 package com.google.samples.apps.sunflower.data;
 
+import org.jetbrains.annotations.NotNull;
+
 import androidx.lifecycle.LiveData;
 
 
@@ -60,14 +62,16 @@ public final class GardenPlantingRepository {
     }
 
 
-    public final LiveData getGardenPlantingForPlant( String plantId) {
+    public final LiveData getGardenPlantingForPlant(@NotNull String plantId) {
         return this.gardenPlantingDao.getGardenPlantingForPlant(plantId);
     }
 
+    @NotNull
     public final LiveData getGardenPlantings() {
         return this.gardenPlantingDao.getGardenPlantings();
     }
 
+    @NotNull
     public final LiveData getPlantAndGardenPlantings() {
         return this.gardenPlantingDao.getPlantAndGardenPlantings();
     }
@@ -77,8 +81,9 @@ public final class GardenPlantingRepository {
     }
 
     public static final class Companion {
-        
-        public final GardenPlantingRepository getInstance( GardenPlantingDao gardenPlantingDao) {
+
+        @NotNull
+        public final GardenPlantingRepository getInstance(@NotNull GardenPlantingDao gardenPlantingDao) {
             GardenPlantingRepository gardenPlantingRepository = GardenPlantingRepository.instance;
             if (gardenPlantingRepository == null) {
                 gardenPlantingRepository = GardenPlantingRepository.instance;

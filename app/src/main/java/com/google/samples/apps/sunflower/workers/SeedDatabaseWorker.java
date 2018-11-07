@@ -31,11 +31,12 @@ public final class SeedDatabaseWorker extends Worker {
     public SeedDatabaseWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
     }
+
     @NonNull
     @Override
     public Result doWork() {
-        Type plantType = (new TypeToken() {
-        }).getType();
+        Type plantType = new TypeToken() {
+        }.getType();
         JsonReader jsonReader = null;
         Result result;
         try {
