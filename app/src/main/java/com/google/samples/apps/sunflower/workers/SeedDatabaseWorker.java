@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.samples.apps.sunflower.data.AppDatabase;
+import com.google.samples.apps.sunflower.data.Plant;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,8 +36,7 @@ public final class SeedDatabaseWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        Type plantType = new TypeToken() {
-        }.getType();
+        Type plantType = new TypeToken<List<Plant>>(){}.getType();
         JsonReader jsonReader = null;
         Result result;
         try {

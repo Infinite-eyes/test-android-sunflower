@@ -24,7 +24,7 @@ public class PlantAndGardenPlantings {
 
     @Relation(parentColumn = "id", entityColumn = "plant_id")
     @NotNull
-    private List gardenPlantings;
+    private List<GardenPlanting> gardenPlantings;
 
     @Nullable
     public final Plant getPlant() {
@@ -36,20 +36,17 @@ public class PlantAndGardenPlantings {
     }
 
     @NotNull
-    public final List getGardenPlantings() {
+    public final List<GardenPlanting> getGardenPlantings() {
         return this.gardenPlantings;
     }
 
-    public final void setGardenPlantings(@NotNull List gardenPlantings) {
+    public final void setGardenPlantings(@NotNull List<GardenPlanting> gardenPlantings) {
         this.gardenPlantings = gardenPlantings;
     }
 
     public PlantAndGardenPlantings() {
-        ArrayList gardenPlantings = new ArrayList();
-        this.gardenPlantings = (List) gardenPlantings;
+        this.gardenPlantings = new ArrayList();
     }
-
-
 
 
 }

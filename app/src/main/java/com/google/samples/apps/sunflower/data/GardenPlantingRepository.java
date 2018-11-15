@@ -2,6 +2,9 @@ package com.google.samples.apps.sunflower.data;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Calendar;
+import java.util.List;
+
 import androidx.lifecycle.LiveData;
 
 
@@ -17,86 +20,52 @@ public final class GardenPlantingRepository {
     private static volatile GardenPlantingRepository instance;
     public static final GardenPlantingRepository.Companion Companion = new GardenPlantingRepository.Companion();
 
-
-    public final GardenPlantingRepository getInstance( GardenPlantingDao gardenPlantingDao) {
-//        GardenPlantingRepository var10000 = GardenPlantingRepository.instance;
-//        if (var10000 == null) {
-//            synchronized (this) {
-//            }
-//
-//            GardenPlantingRepository var4;
-//            try {
-//                var10000 = GardenPlantingReposi0tory.instance;
-//                if (var10000 == null) {
-//                    GardenPlantingRepository var3 = new GardenPlantingRepository(gardenPlantingDao, (DefaultConstructorMarker) null);
-//                    GardenPlantingRepository.instance = var3;
-//                    var10000 = var3;
-//                }
-//
-//                var4 = var10000;
-//            } finally {
-//                ;
-//            }
-//
-//            var10000 = var4;
-//        }
-
-        return null;
+    private GardenPlantingRepository(GardenPlantingDao gardenPlantingDao) {
+        this.gardenPlantingDao = gardenPlantingDao;
     }
 
-    public final void createGardenPlanting( final String plantId) {
-
-//        AppExecutorsKt.runOnIoThread((Function0)(new Function0() {
-//            // $FF: synthetic method
-//            // $FF: bridge method
-//            public Object invoke() {
-//                this.invoke();
-//                return Unit.INSTANCE;
-//            }
-//
-//            public final void invoke() {
-//                GardenPlanting gardenPlanting = new GardenPlanting(plantId, (Calendar)null, (Calendar)null, 6, (DefaultConstructorMarker)null);
-//                GardenPlantingRepository.this.gardenPlantingDao.insertGardenPlanting(gardenPlanting);
-//            }
-//        }));
+    public final void createGardenPlanting(@NotNull String plantId) {
+        AppExecutors.runOnIoThread(() -> GardenPlantingRepository.this.gardenPlantingDao.insertGardenPlanting(new GardenPlanting(plantId, Calendar.getInstance(), Calendar.getInstance())));
     }
 
+    public final void removeGardenPlanting(@NotNull GardenPlanting gardenPlanting) {
+        AppExecutors.runOnIoThread(new Runnable() {
+            @Override
+            public void run() {
+                GardenPlantingRepository.this.gardenPlantingDao.deleteGardenPlanting(gardenPlanting);
+            }
+        });
+    }
 
-    public final LiveData getGardenPlantingForPlant(@NotNull String plantId) {
+    @NotNull
+    public final LiveData<GardenPlanting> getGardenPlantingForPlant(@NotNull String plantId) {
         return this.gardenPlantingDao.getGardenPlantingForPlant(plantId);
     }
 
     @NotNull
-    public final LiveData getGardenPlantings() {
+    public final LiveData<List<GardenPlanting>> getGardenPlantings() {
         return this.gardenPlantingDao.getGardenPlantings();
     }
 
     @NotNull
-    public final LiveData getPlantAndGardenPlantings() {
+    public final LiveData<List<PlantAndGardenPlantings>> getPlantAndGardenPlantings() {
         return this.gardenPlantingDao.getPlantAndGardenPlantings();
     }
 
-    private GardenPlantingRepository(GardenPlantingDao gardenPlantingDao) {
-        this.gardenPlantingDao = gardenPlantingDao;
-    }
 
     public static final class Companion {
 
         @NotNull
         public final GardenPlantingRepository getInstance(@NotNull GardenPlantingDao gardenPlantingDao) {
-            GardenPlantingRepository gardenPlantingRepository = GardenPlantingRepository.instance;
-            if (gardenPlantingRepository == null) {
-                gardenPlantingRepository = GardenPlantingRepository.instance;
-                if (gardenPlantingRepository == null) {
-                    GardenPlantingRepository var3 = new GardenPlantingRepository(gardenPlantingDao);
-                    GardenPlantingRepository.instance = var3;
-                    gardenPlantingRepository = var3;
+            if (GardenPlantingRepository.instance == null) {
+                synchronized (this) {
+                    if (GardenPlantingRepository.instance == null) {
+                        GardenPlantingRepository.instance = new GardenPlantingRepository(gardenPlantingDao);
+                    }
                 }
             }
-
-            return gardenPlantingRepository;
+            return GardenPlantingRepository.instance;
         }
-
 
     }
 

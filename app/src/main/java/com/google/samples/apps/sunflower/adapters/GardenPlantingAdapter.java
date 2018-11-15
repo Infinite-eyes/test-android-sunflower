@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.google.samples.apps.sunflower.R;
 import com.google.samples.apps.sunflower.data.PlantAndGardenPlantings;
 import com.google.samples.apps.sunflower.databinding.ListItemGardenPlantingBinding;
+import com.google.samples.apps.sunflower.viewmodels.PlantAndGardenPlantingsViewModel;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -46,7 +47,7 @@ public class GardenPlantingAdapter extends ListAdapter<PlantAndGardenPlantings, 
         private final ListItemGardenPlantingBinding binding;
 
         private final void bind(PlantAndGardenPlantings plantings) {
-//            this.binding.setViewModel(new PlantAndGardenPlantingsViewModel(this.itemView.getContext(), plantings));
+            this.binding.setViewModel(new PlantAndGardenPlantingsViewModel(this.itemView.getContext(), plantings));
             this.binding.executePendingBindings();
         }
 

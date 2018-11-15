@@ -25,11 +25,11 @@ public interface PlantDao {
 
     @Query("SELECT * FROM plants WHERE growZoneNumber = :growZoneNumber ORDER BY name")
     @NotNull
-    LiveData getPlantsWithGrowZoneNumber(int growZoneNumber);
+    LiveData<List<Plant>> getPlantsWithGrowZoneNumber(int growZoneNumber);
 
     @Query("SELECT * FROM plants WHERE id = :plantId")
     @NotNull
-    LiveData getPlant(@NotNull String plantId);
+    LiveData<Plant> getPlant(@NotNull String plantId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
      void insertAll(@NotNull List<Plant> plants);

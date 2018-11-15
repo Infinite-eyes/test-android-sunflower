@@ -14,12 +14,7 @@ import com.google.samples.apps.sunflower.viewmodels.GardenPlantingListViewModelF
  **/
 public final class InjectorUtils {
 
-    static {
-        InjectorUtils injectorUtils = new InjectorUtils();
-        INSTANCE = injectorUtils;
-    }
-
-    public static final InjectorUtils INSTANCE;
+    public static final InjectorUtils INSTANCE = new InjectorUtils();
 
     private final GardenPlantingRepository getGardenPlantingRepository(Context context) {
         return GardenPlantingRepository.Companion.getInstance(AppDatabase.Companion.getInstance(context).gardenPlantingDao());

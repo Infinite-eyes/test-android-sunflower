@@ -46,4 +46,75 @@ public class PlantAndGardenPlantingsViewModel extends ViewModel {
     }
 
 
+    public Plant getPlant() {
+        return plant;
+    }
+
+    public GardenPlanting getGardenPlanting() {
+        return gardenPlanting;
+    }
+
+    public SimpleDateFormat getDateFormat() {
+        return dateFormat;
+    }
+
+    public void setDateFormat(SimpleDateFormat dateFormat) {
+        this.dateFormat = dateFormat;
+    }
+
+    public String getPlantDateString() {
+        return plantDateString;
+    }
+
+    public void setPlantDateString(String plantDateString) {
+        this.plantDateString = plantDateString;
+    }
+
+    public String getWaterDateString() {
+        return waterDateString;
+    }
+
+    public void setWaterDateString(String waterDateString) {
+        this.waterDateString = waterDateString;
+    }
+
+    public String getWateringPrefix() {
+        return wateringPrefix;
+    }
+
+    public void setWateringPrefix(String wateringPrefix) {
+        this.wateringPrefix = wateringPrefix;
+    }
+
+    public String getWateringSuffix() {
+        return wateringSuffix;
+    }
+
+    public void setWateringSuffix(String wateringSuffix) {
+        this.wateringSuffix = wateringSuffix;
+    }
+
+    public ObservableField<String> getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(ObservableField<String> imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public ObservableField<String> getPlantDate() {
+        return plantDate;
+    }
+
+    public void setPlantDate(ObservableField<String> plantDate) {
+        this.plantDate = plantDate;
+    }
+
+    public ObservableField<String> getWaterDate() {
+        return waterDate;
+    }
+
+    public void setWaterDate(ObservableField<String> waterDate) {
+        this.waterDate = waterDate;
+    }
 }
