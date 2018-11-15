@@ -23,7 +23,7 @@ public interface GardenPlantingDao {
 
     @Query("SELECT * FROM garden_plantings")
     @NotNull
-    LiveData getGardenPlantings();
+    LiveData<GardenPlanting> getGardenPlantings();
 
     @Query("SELECT * FROM garden_plantings WHERE id = :gardenPlantingId")
     @NotNull

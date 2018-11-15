@@ -37,6 +37,7 @@ public final class GardenPlanting {
     @ColumnInfo(name = "plant_id")
     @NotNull
     private final String plantId;
+
     @ColumnInfo(name = "plant_date")
     @NotNull
     private final Calendar plantDate;

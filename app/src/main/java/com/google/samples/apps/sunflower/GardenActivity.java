@@ -8,9 +8,10 @@ import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
-import androidx.navigation.ui.NavigationViewKt;
+import androidx.navigation.ui.NavControllerKt;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.samples.apps.sunflower.databinding.ActivityGardenBinding;
 /**
@@ -22,23 +23,26 @@ import com.google.samples.apps.sunflower.databinding.ActivityGardenBinding;
 public class GardenActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
-
+    private AppBarConfiguration appBarConfiguration;
+    private NavController navController;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityGardenBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_garden);
         drawerLayout = binding.drawerLayout;
+        navController = Navigation.findNavController(this, R.id.garden_nav_fragment);
 
-        NavController navController = Navigation.findNavController(this, R.id.garden_nav_fragment);
+        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).setDrawerLayout(drawerLayout).build();
+
         setSupportActionBar(binding.toolbar);
-        NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout);
-        NavigationViewKt.setupWithNavController(binding.navigationView,navController);
+        NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration);
+        NavigationUI.setupWithNavController(binding.navigationView,navController);
     }
 
 
     @Override
     public boolean onSupportNavigateUp() {
-        return NavigationUI.navigateUp(drawerLayout,Navigation.findNavController(this,R.id.garden_nav_fragment));
+        return NavControllerKt.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
     }
 
     public void onBackPressed(){

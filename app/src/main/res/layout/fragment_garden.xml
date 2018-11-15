@@ -36,7 +36,6 @@
             android:clipToPadding="false"
             android:paddingLeft="@dimen/margin_normal"
             android:paddingRight="@dimen/margin_normal"
-
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
              />
         <!--app:isGone="@{!hasPlantings}"-->

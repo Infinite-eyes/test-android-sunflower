@@ -2,12 +2,11 @@ package com.google.samples.apps.sunflower.data;
 
 import android.content.Context;
 
-import com.google.samples.apps.sunflower.workers.SeedDatabaseWorker;
 
+import com.google.samples.apps.sunflower.workers.SeedDatabaseWorker;
 
 import org.jetbrains.annotations.NotNull;
 
-import androidx.databinding.adapters.Converters;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
