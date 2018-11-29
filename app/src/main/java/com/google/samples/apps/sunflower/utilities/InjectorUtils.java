@@ -6,6 +6,8 @@ import com.google.samples.apps.sunflower.data.AppDatabase;
 import com.google.samples.apps.sunflower.data.GardenPlantingRepository;
 import com.google.samples.apps.sunflower.data.PlantRepository;
 import com.google.samples.apps.sunflower.viewmodels.GardenPlantingListViewModelFactory;
+import com.google.samples.apps.sunflower.viewmodels.PlantDetailViewModel;
+import com.google.samples.apps.sunflower.viewmodels.PlantDetailViewModelFactory;
 import com.google.samples.apps.sunflower.viewmodels.PlantListViewModelFactory;
 
 import org.jetbrains.annotations.NotNull;
@@ -35,6 +37,11 @@ public final class InjectorUtils {
 
     public final PlantListViewModelFactory providePlantListViewModelFactory(Context context) {
         return new PlantListViewModelFactory(getPlantRepository(context));
+    }
+
+
+    public final PlantDetailViewModelFactory providePlantDetailViewModelFactory(@NotNull Context context, @NotNull String plantId) {
+        return new PlantDetailViewModelFactory(getPlantRepository(context), getGardenPlantingRepository(context), plantId);
     }
 
 

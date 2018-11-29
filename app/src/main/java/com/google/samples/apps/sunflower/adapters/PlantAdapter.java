@@ -6,10 +6,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.samples.apps.sunflower.PlantListFragmentDirections;
 import com.google.samples.apps.sunflower.R;
 import com.google.samples.apps.sunflower.data.Plant;
 import com.google.samples.apps.sunflower.databinding.ListItemPlantBinding;
@@ -68,8 +72,8 @@ public class PlantAdapter extends ListAdapter<Plant, PlantAdapter.ViewHolder> {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ActionPlantListFragmentToPlantDetailFragment direction = PlantListFragmentDirections.ActionPlantListFragmentToPlantDetailFragment(plantId)
-//                ViewKt.findNavController(it).navigate((NavDirections) direction);
+                PlantListFragmentDirections.ActionPlantListFragmentToPlantDetailFragment direction = new PlantListFragmentDirections.ActionPlantListFragmentToPlantDetailFragment(plantId);
+                Navigation.findNavController(v).navigate((NavDirections) direction);
             }
         };
 
