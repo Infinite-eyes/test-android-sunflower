@@ -4,7 +4,11 @@ import android.content.Context;
 
 import com.google.samples.apps.sunflower.data.AppDatabase;
 import com.google.samples.apps.sunflower.data.GardenPlantingRepository;
+import com.google.samples.apps.sunflower.data.PlantRepository;
 import com.google.samples.apps.sunflower.viewmodels.GardenPlantingListViewModelFactory;
+import com.google.samples.apps.sunflower.viewmodels.PlantListViewModelFactory;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author chenweiming
@@ -23,6 +27,14 @@ public final class InjectorUtils {
     public final GardenPlantingListViewModelFactory provideGardenPlantingListViewModelFactory(Context context) {
         GardenPlantingRepository repository = this.getGardenPlantingRepository(context);
         return new GardenPlantingListViewModelFactory(repository);
+    }
+
+    private final PlantRepository getPlantRepository(Context context) {
+        return PlantRepository.Companion.getInstance(AppDatabase.Companion.getInstance(context).plantDao());
+    }
+
+    public final PlantListViewModelFactory providePlantListViewModelFactory(Context context) {
+        return new PlantListViewModelFactory(getPlantRepository(context));
     }
 
 
